@@ -1,10 +1,10 @@
 #include <iostream>
-#include "../multi_platform/Engine.h"
+#include "../multi_platform/Engine/Engine.h"
 
 using namespace std;
 
 int main() {
-	cout << "h";
+	engine e;
 
 	return 0;
 }

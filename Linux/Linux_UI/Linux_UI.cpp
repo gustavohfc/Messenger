@@ -26,13 +26,12 @@ void Linux_UI::run(){
 		{
 			recebido = engine_communication->request_to_UI();
 			if(recebido->type == ENCERRAR_UI)
-				delete this;
-
+				return;
 			printw(recebido->mensagem->c_str());
 			printw("\n");
 			refresh();
 		}
 	}
 
-	delete this;
+	return;
 }

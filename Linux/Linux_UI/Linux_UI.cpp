@@ -1,13 +1,12 @@
 #include "Linux_UI.h"
 
-#include <chrono>
-#include <thread>
-
 using namespace std;
 
 Linux_UI::Linux_UI(UI_engine_communication* engine_communication)
 {
 	this->engine_communication = engine_communication;
+	initscr();	/* Start curses mode */
+	getch();
 	this->run();
 }
 
@@ -18,7 +17,6 @@ Linux_UI::~Linux_UI()
 }
 
 void Linux_UI::run(){
-	initscr();	/* Start curses mode */
 
 	while(true)
 	{

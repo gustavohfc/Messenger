@@ -5,10 +5,7 @@
 class UI
 {
 public:
-    UI(){}
-    virtual ~UI(){}
-    virtual void ler_mensagem() = 0;
-    virtual void escrever_mensagem() = 0;
+	virtual ~UI() {}
 };
 
 #endif

@@ -3,17 +3,19 @@
 
 #include <iostream>
 #include <ncurses.h>
+#include "../../multi_platform/Interfaces/Thread_communication.h"
 #include "../../multi_platform/Interfaces/UI.h"
 
 class Linux_UI: public UI
 {
 private:
+	void run();
+	engine_to_UI* recebido;
+	UI_engine_communication* engine_communication;
 
 public:
-	Linux_UI();
+	Linux_UI(UI_engine_communication* engine_communication);
 	~Linux_UI();
-    void ler_mensagem();
-    void escrever_mensagem();
 };
 
 #endif

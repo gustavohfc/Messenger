@@ -1,14 +1,10 @@
 #include "UI_selector.h"
 
-UI* UI_selector::nova_interface()
+void UI_selector::nova_interface(UI_engine_communication* engine_communication)
 {
-	UI* interface;
-
 	#ifdef __linux__ 
-		interface = new Linux_UI();
+		new Linux_UI(engine_communication);
 	#elif _WIN32
 		// TODO
 	#endif
-
-	return interface;
 }

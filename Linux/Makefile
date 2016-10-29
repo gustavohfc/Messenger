@@ -1,8 +1,8 @@
 CC = g++
-CFLAGS = -Wall -std=c++11
+CFLAGS = -Wall -std=c++11 -g
 
 Messenger: obj/main.o obj/Engine.o obj/Funcionalidades.o obj/Conexao.o obj/Peer.o obj/Linux_UI.o obj/UI_selector.o obj/Thread_communication.o
-	$(CC) obj/* -o Messenger -lncurses -lpthread
+	$(CC) obj/* -g -o Messenger -lncurses -lpthread
 
 obj/main.o: main.cpp
 	$(CC) $(CFLAGS) -c main.cpp -o obj/main.o

@@ -12,6 +12,10 @@ class engine
 {
 private:
 	UI_engine_communication* UI_communication;
+	UI_to_engine* request_from_UI;
+	engine_to_UI* request_to_UI;
+	engine_to_sockets* request_from_sockets;
+	sockets_to_engine* request_to_sockets;
 
 public:
 	engine();

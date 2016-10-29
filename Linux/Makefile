@@ -1,8 +1,8 @@
 CC = g++
-CFLAGS = -Wall
+CFLAGS = -Wall -std=c++11
 
-Messenger: obj/main.o obj/Engine.o obj/Funcionalidades.o obj/Conexao.o obj/Peer.o obj/Linux_UI.o obj/UI_selector.o
-	$(CC) obj/* -o Messenger
+Messenger: obj/main.o obj/Engine.o obj/Funcionalidades.o obj/Conexao.o obj/Peer.o obj/Linux_UI.o obj/UI_selector.o obj/Thread_communication.o
+	$(CC) obj/* -o Messenger -lncurses -lpthread
 
 obj/main.o: main.cpp
 	$(CC) $(CFLAGS) -c main.cpp -o obj/main.o
@@ -25,11 +25,16 @@ obj/Linux_UI.o: Linux_UI/Linux_UI.cpp Linux_UI/Linux_UI.h
 obj/UI_selector.o: ../multi_platform/Interfaces/UI_selector/UI_selector.cpp ../multi_platform/Interfaces/UI_selector/UI_selector.h
 	$(CC) $(CFLAGS) -c ../multi_platform/Interfaces/UI_selector/UI_selector.cpp -o obj/UI_selector.o
 
+obj/Thread_communication.o: ../multi_platform/Interfaces/Thread_communication.cpp ../multi_platform/Interfaces/Thread_communication.h
+	$(CC) $(CFLAGS) -c ../multi_platform/Interfaces/Thread_communication.cpp -o obj/Thread_communication.o
 
 
 
 
-r: clean Messenger
+r: e
+	./Messenger
+
+e: clean Messenger
 
 clean:
 	rm obj/*

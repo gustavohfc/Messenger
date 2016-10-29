@@ -1,13 +1,15 @@
-#include <iostream>
 #include "Linux_UI.h"
 
 using namespace std;
 
-void Linux_UI::ler_mensagem()
+Linux_UI::Linux_UI() {}
+
+
+Linux_UI::~Linux_UI()
 {
+	endwin();			/* End curses mode */
 }
 
-void Linux_UI::escrever_mensagem()
-{
-	cout << "hello\n";
-}
+//Linux_UI::run(){
+//	initscr();			/* Start curses mode */
+//}

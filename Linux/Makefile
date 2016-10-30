@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall -std=c++11 -g
 
-Messenger: obj/main.o obj/Engine.o obj/Funcionalidades.o obj/Conexao.o obj/Peer.o obj/Linux_UI.o obj/UI_selector.o obj/Thread_communication.o
+Messenger: obj/main.o obj/Engine.o obj/Funcionalidades.o obj/Conexao.o obj/Peer.o obj/Linux_UI.o obj/UI_selector.o obj/Thread_communication.o obj/Socket_selector.o obj/Berkeley_socket.o
 	$(CC) obj/* -g -o Messenger -lncurses -lpthread
 
 obj/main.o: main.cpp
@@ -28,6 +28,11 @@ obj/UI_selector.o: ../multi_platform/Interfaces/UI_selector/UI_selector.cpp ../m
 obj/Thread_communication.o: ../multi_platform/Interfaces/Thread_communication.cpp ../multi_platform/Interfaces/Thread_communication.h
 	$(CC) $(CFLAGS) -c ../multi_platform/Interfaces/Thread_communication.cpp -o obj/Thread_communication.o
 
+obj/Socket_selector.o: ../multi_platform/Interfaces/Socket_selector/Socket_selector.cpp ../multi_platform/Interfaces/Socket_selector/Socket_selector.h
+	$(CC) $(CFLAGS) -c ../multi_platform/Interfaces/Socket_selector/Socket_selector.cpp -o obj/Socket_selector.o
+
+obj/Berkeley_socket.o: ../Berkeley_socket/Berkeley_socket.cpp ../Berkeley_socket/Berkeley_socket.h
+		$(CC) $(CFLAGS) -c ../Berkeley_socket/Berkeley_socket.cpp -o obj/Berkeley_socket.o
 
 
 

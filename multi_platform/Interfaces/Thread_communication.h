@@ -72,7 +72,7 @@ public:
 	engine_to_UI* request_to_UI();
 };
 
-class sockets_communication
+class socket_engine_communication
 {
 };
 
